@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    hikari:
+      #\u65E0\u8FDE\u63A5\u60C5\u51B5\u4E0B\u8D85\u65F6\u6BEB\u79D2\u6570\uFF0C\u8D85\u65F6\u5C06\u62A5\u9519\uFF0C\u9ED8\u8BA4\u5C31\u662F30s
+      connection-timeout: 30000
+      #\u8BFB\u5E93\u914D\u7F6E\u6210false\uFF0C\u66F4\u52A0\u5B89\u5168
+      read-only: false
+      #\u6C60\u4E2D\u8FDE\u63A5\u7684\u6700\u957F\u751F\u547D\u5468\u671F\uFF0C\u8D85\u65F6\u800C\u4E14\u6CA1\u88AB\u4F7F\u7528\u5219\u88AB\u91CA\u653E\uFF08retired\uFF09\uFF0C\u7F3A\u7701:30\u5206\u949F\uFF0C\u5EFA\u8BAE\u8BBE\u7F6E\u6BD4\u6570\u636E\u5E93\u8D85\u65F6\u65F6\u957F\u5C1130\u79D2\uFF0C\u53C2\u8003MySQL wait_timeout\u53C2\u6570\uFF08show variables like '%timeout%';\uFF09
+      max-lifetime: 1800000
+      #\u4E00\u4E2A\u8FDE\u63A5idle\u72B6\u6001\u7684\u6700\u5927\u65F6\u957F\uFF08\u6BEB\u79D2\uFF09\uFF0C\u8D85\u65F6\u5219\u88AB\u91CA\u653E\uFF08retired\uFF09\uFF0C\u7F3A\u7701:10\u5206\u949F
+      idle-timeout: 600000
+      maximum-pool-size: 200
+      pool-name: chat_pool
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/chat?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+mybatis:
+  type-aliases-package: com.chart.im.core.entity,com.chart.im.core.dto
+  mapper-locations: classpath:mappers/*.xml
